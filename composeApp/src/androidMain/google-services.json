@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "260704065947",
+    "project_id": "diario-do-peso",
+    "storage_bucket": "diario-do-peso.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260704065947:android:7683b658b8cc48cc78e93e",
+        "android_client_info": {
+          "package_name": "br.com.rubensrodrigues.diariodopeso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXrJKLjazqL5jZ5zaqGqBUNpOLlglG48k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
