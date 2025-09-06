@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 fun AppTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         typography = typography(),
+        colorScheme = colorScheme(),
         content = content,
     )
 }
