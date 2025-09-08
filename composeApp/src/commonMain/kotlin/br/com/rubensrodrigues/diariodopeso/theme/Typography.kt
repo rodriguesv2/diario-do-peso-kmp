@@ -64,7 +64,7 @@ fun typography() = Typography(
     titleLarge = androidx.compose.ui.text.TextStyle(
         fontFamily = montserrat(),
         fontWeight = FontWeight.Medium,
-        fontSize = 22.sp,
+        fontSize = 20.sp,
         lineHeight = 28.sp
     ),
     titleMedium = androidx.compose.ui.text.TextStyle(
