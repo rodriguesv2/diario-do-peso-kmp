@@ -48,6 +48,11 @@ fun App() {
 //        }
 //    }
     AppTheme {
-        StartTemplate()
+        StartTemplate(
+            onButtonGoogleClick = {},
+            onButtonEmailClick = {},
+            onLoginClick = {},
+            onContinueWithoutLoginClick = {},
+        )
     }
 }
