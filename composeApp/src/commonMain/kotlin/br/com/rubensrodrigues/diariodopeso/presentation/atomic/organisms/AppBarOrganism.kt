@@ -2,8 +2,11 @@ package br.com.rubensrodrigues.diariodopeso.presentation.atomic.organisms
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -13,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.unit.dp
 import br.com.rubensrodrigues.diariodopeso.extensions.Margin
 import br.com.rubensrodrigues.diariodopeso.theme.AppTheme
 import diariodopeso.composeapp.generated.resources.Res
@@ -22,7 +27,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppBarOrganism() {
+fun AppBarOrganism(
+    title: String,
+    onBackButtonClick: () -> Unit = {},
+    modifier: Modifier = Modifier,
+) {
     TopAppBar(
         colors = TopAppBarColors(
             containerColor = Color.Transparent,
@@ -31,25 +40,27 @@ fun AppBarOrganism() {
             actionIconContentColor = Color.White,
             navigationIconContentColor = Color.White,
         ),
-        modifier = Modifier.background(
-            Brush.linearGradient(
+        modifier = modifier.background(
+            Brush.horizontalGradient(
                 colors = listOf(
                     Color(0xFF3894D9),
                     Color(0xFF55B6FF),
                     Color(0xFF3894D9),
                 ),
-                start = Offset(0f, 0f),
-                end = Offset(1000f, 1000f)
             )
         ),
         title = {
-            Row {
-                Margin()
-                Text("Cadastrar")
-            }
+            Text(title)
         },
         navigationIcon = {
-            Icon(painter = painterResource(Res.drawable.ic_arrow_back), null)
+            IconButton(
+                onClick = onBackButtonClick,
+            ) {
+                Icon(
+                    painter = painterResource(Res.drawable.ic_arrow_back),
+                    contentDescription = null,
+                )
+            }
         }
     )
 }
@@ -58,6 +69,9 @@ fun AppBarOrganism() {
 @Preview
 private fun Preview() {
     AppTheme {
-        AppBarOrganism()
+        AppBarOrganism(
+            "Cadastrar",
+            onBackButtonClick = {},
+        )
     }
 }

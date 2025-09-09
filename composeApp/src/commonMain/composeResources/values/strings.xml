@@ -5,4 +5,13 @@
     <string name="start_already_have_account">Já tem conta?</string>
     <string name="start_do_login">Faça o login</string>
     <string name="start_continue_without_login">Continuar sem login</string>
+
+    <string name="sign_up_title">Cadastrar</string>
+    <string name="sign_up_subtitle_data">Adicione os dados de cadastro</string>
+    <string name="sign_up_subtitle_password">Crie uma senha</string>
+    <string name="sign_up_name_field">Nome</string>
+    <string name="sign_up_email_field">E-mail</string>
+    <string name="sign_up_password_field">Senha</string>
+    <string name="sign_up_confirm_password_field">Confirme a Senha</string>
+    <string name="sign_up_continue">Continuar</string>
 </resources>

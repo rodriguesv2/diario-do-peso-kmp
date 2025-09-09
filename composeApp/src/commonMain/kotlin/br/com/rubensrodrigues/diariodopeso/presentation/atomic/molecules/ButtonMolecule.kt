@@ -34,8 +34,8 @@ fun ButtonMolecule(
     colors: ButtonColors = ButtonDefaults.buttonColors(),
 ) {
     Button(
-        modifier = modifier.height(55.dp),
-        shape = RoundedCornerShape(16.dp),
+        modifier = modifier.height(50.dp),
+        shape = RoundedCornerShape(12.dp),
         onClick = onClick,
         colors = colors,
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp),
@@ -46,7 +46,7 @@ fun ButtonMolecule(
         }
         Text(
             text = text,
-            fontSize = 20.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
         )
     }
