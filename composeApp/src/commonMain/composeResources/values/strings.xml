@@ -14,4 +14,5 @@
     <string name="sign_up_password_field">Senha</string>
     <string name="sign_up_confirm_password_field">Confirme a Senha</string>
     <string name="sign_up_continue">Continuar</string>
+    <string name="sign_up_finish">Cadastrar</string>
 </resources>
