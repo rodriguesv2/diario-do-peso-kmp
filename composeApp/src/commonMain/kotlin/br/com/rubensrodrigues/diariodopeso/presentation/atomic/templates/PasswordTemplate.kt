@@ -14,6 +14,7 @@ import br.com.rubensrodrigues.diariodopeso.extensions.Expanded
 import br.com.rubensrodrigues.diariodopeso.extensions.Margin
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules.ButtonMolecule
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules.TextFieldMolecule
+import br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules.TextFieldType
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.organisms.AppBarOrganism
 import br.com.rubensrodrigues.diariodopeso.theme.AppTheme
 import diariodopeso.composeapp.generated.resources.Res
@@ -62,6 +63,7 @@ fun PasswordTemplate(
                 label = stringResource(Res.string.sign_up_password_field),
                 value = password,
                 onValueChange = onPasswordChanged,
+                textFieldType = TextFieldType.PASSWORD,
             )
             Margin()
             TextFieldMolecule(
@@ -69,6 +71,7 @@ fun PasswordTemplate(
                 label = stringResource(Res.string.sign_up_confirm_password_field),
                 value = confirmPassword,
                 onValueChange = onConfirmPasswordChanged,
+                textFieldType = TextFieldType.PASSWORD,
             )
             Expanded()
             ButtonMolecule(
@@ -86,9 +89,9 @@ private fun Preview() {
     AppTheme {
         PasswordTemplate(
             onBackButtonClick = {},
-            password = "Beltrano",
+            password = "123456",
             onPasswordChanged = {},
-            confirmPassword = "beltrano@gmail.com",
+            confirmPassword = "123456",
             onConfirmPasswordChanged = {},
             onSignUpClick = {}
         )
