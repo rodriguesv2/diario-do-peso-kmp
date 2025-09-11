@@ -4,14 +4,17 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonElevation
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -32,6 +35,7 @@ fun ButtonMolecule(
     modifier: Modifier = Modifier,
     icon: @Composable (() -> Unit)? = null,
     colors: ButtonColors = ButtonDefaults.buttonColors(),
+    isLoading: Boolean = false,
 ) {
     Button(
         modifier = modifier.height(50.dp),
@@ -40,6 +44,14 @@ fun ButtonMolecule(
         colors = colors,
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp),
     ) {
+        if (isLoading) {
+            CircularProgressIndicator(
+                Modifier.size(28.dp),
+                color = colors.contentColor,
+                strokeWidth = 3.dp
+            )
+            return@Button
+        }
         if (icon != null) {
             icon()
             Spacer(Modifier.width(16.dp))
@@ -60,6 +72,19 @@ private fun Preview() {
             modifier = Modifier.fillMaxWidth(),
             text = "Continuar com E-mail",
             onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun PreviewLoading() {
+    AppTheme {
+        ButtonMolecule(
+            modifier = Modifier.fillMaxWidth(),
+            text = "Continuar com E-mail",
+            onClick = {},
+            isLoading = true,
         )
     }
 }
