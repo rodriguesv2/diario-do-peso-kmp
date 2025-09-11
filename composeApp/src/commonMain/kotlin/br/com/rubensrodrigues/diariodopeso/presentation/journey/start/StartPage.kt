@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavController
 import br.com.rubensrodrigues.diariodopeso.navigation.Destination
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.templates.StartTemplate
+import br.com.rubensrodrigues.diariodopeso.presentation.shared.compose.LaunchedEffectState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -16,12 +17,10 @@ fun StartPage(
     navController: NavController,
     viewModel: StartViewModel = koinViewModel(),
 ) {
-    LaunchedEffect(viewModel) {
-        viewModel.state.collectLatest { state ->
-            when (state) {
-                StartState.ToSignUpData -> {
-                    navController.navigate(Destination.SignUpData)
-                }
+    LaunchedEffectState(viewModel) { state ->
+        when (state) {
+            StartState.ToSignUpData -> {
+                navController.navigate(Destination.SignUpData)
             }
         }
     }

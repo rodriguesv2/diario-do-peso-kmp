@@ -1,6 +1,8 @@
 package br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -36,12 +38,14 @@ fun ButtonMolecule(
     icon: @Composable (() -> Unit)? = null,
     colors: ButtonColors = ButtonDefaults.buttonColors(),
     isLoading: Boolean = false,
+    isEnabled: Boolean = true,
 ) {
     Button(
         modifier = modifier.height(50.dp),
         shape = RoundedCornerShape(12.dp),
-        onClick = onClick,
+        onClick = if (isLoading) {{}} else onClick,
         colors = colors,
+        enabled = isEnabled,
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp),
     ) {
         if (isLoading) {
@@ -86,6 +90,21 @@ private fun PreviewLoading() {
             onClick = {},
             isLoading = true,
         )
+    }
+}
+
+@Composable
+@Preview
+private fun PreviewDisabled() {
+    AppTheme {
+        Box(Modifier.background(Color.White)) {
+            ButtonMolecule(
+                modifier = Modifier.fillMaxWidth(),
+                text = "Continuar com E-mail",
+                onClick = {},
+                isEnabled = false,
+            )
+        }
     }
 }
 
