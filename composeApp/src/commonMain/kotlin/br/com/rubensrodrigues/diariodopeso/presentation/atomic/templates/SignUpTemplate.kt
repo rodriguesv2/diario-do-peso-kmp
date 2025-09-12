@@ -19,6 +19,7 @@ import br.com.rubensrodrigues.diariodopeso.extensions.Expanded
 import br.com.rubensrodrigues.diariodopeso.extensions.Margin
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules.ButtonMolecule
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules.TextFieldMolecule
+import br.com.rubensrodrigues.diariodopeso.presentation.atomic.molecules.TextFieldType
 import br.com.rubensrodrigues.diariodopeso.presentation.atomic.organisms.AppBarOrganism
 import br.com.rubensrodrigues.diariodopeso.theme.AppTheme
 import diariodopeso.composeapp.generated.resources.Res
@@ -65,6 +66,7 @@ fun SignUpTemplate(
                 label = stringResource(Res.string.sign_up_name_field),
                 value = name,
                 onValueChange = onNameChanged,
+                textFieldType = TextFieldType.NAME
             )
             Margin()
             TextFieldMolecule(
@@ -72,6 +74,7 @@ fun SignUpTemplate(
                 label = stringResource(Res.string.sign_up_email_field),
                 value = email,
                 onValueChange = onEmailChanged,
+                textFieldType = TextFieldType.EMAIL
             )
             Expanded()
             ButtonMolecule(

@@ -1,4 +1,4 @@
-package br.com.rubensrodrigues.diariodopeso.presentation.journey.signUpData
+package br.com.rubensrodrigues.diariodopeso.presentation.journey.sign_up_data
 
 import br.com.rubensrodrigues.diariodopeso.presentation.shared.BaseViewModel
 

@@ -1,4 +1,4 @@
-package br.com.rubensrodrigues.diariodopeso.presentation.journey.signUpData
+package br.com.rubensrodrigues.diariodopeso.presentation.journey.sign_up_data
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

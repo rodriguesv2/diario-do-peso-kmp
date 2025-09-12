@@ -4,9 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
@@ -35,6 +37,13 @@ fun TextFieldMolecule(
     TextField(
         modifier = modifier,
         value = value,
+        keyboardOptions = KeyboardOptions.Default.copy(
+            capitalization = when(textFieldType) {
+                TextFieldType.NAME -> KeyboardCapitalization.Words
+                else -> KeyboardCapitalization.None
+            },
+            keyboardType = getKeyboardType(textFieldType)
+        ),
         onValueChange = onValueChange,
         label = {
             Text(
@@ -64,7 +73,18 @@ fun TextFieldMolecule(
 
 enum class TextFieldType {
     PASSWORD,
+    EMAIL,
+    NAME,
     GENERIC
+}
+
+private fun getKeyboardType(textFieldType: TextFieldType): KeyboardType {
+    return when (textFieldType) {
+        TextFieldType.PASSWORD -> KeyboardType.Password
+        TextFieldType.EMAIL -> KeyboardType.Email
+        TextFieldType.NAME -> KeyboardType.Text
+        TextFieldType.GENERIC -> KeyboardType.Text
+    }
 }
 
 @Composable
