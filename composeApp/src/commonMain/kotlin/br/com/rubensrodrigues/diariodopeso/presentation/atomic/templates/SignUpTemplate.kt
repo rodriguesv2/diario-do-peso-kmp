@@ -35,6 +35,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun SignUpTemplate(
     onBackButtonClick: () -> Unit,
     name: String,
+    isButtonEnabled: Boolean,
     onNameChanged: (String) -> Unit,
     email: String,
     onEmailChanged: (String) -> Unit,
@@ -76,7 +77,8 @@ fun SignUpTemplate(
             ButtonMolecule(
                 modifier = Modifier.fillMaxWidth(),
                 text = stringResource(Res.string.sign_up_continue),
-                onClick = onContinueClick
+                onClick = onContinueClick,
+                isEnabled = isButtonEnabled,
             )
         }
     }
@@ -92,7 +94,8 @@ private fun Preview() {
             onNameChanged = {},
             email = "beltrano@gmail.com",
             onEmailChanged = {},
-            onContinueClick = {}
+            onContinueClick = {},
+            isButtonEnabled = true,
         )
     }
 }

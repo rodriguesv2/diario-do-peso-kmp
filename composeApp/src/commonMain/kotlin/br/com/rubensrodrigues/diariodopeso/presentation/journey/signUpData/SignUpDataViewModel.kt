@@ -6,6 +6,10 @@ class SignUpDataViewModel : BaseViewModel<SignUpDataState, SignUpDataUiState>(
     SignUpDataUiState()
 ) {
 
+    init {
+        setButtonEnabled()
+    }
+
     fun onNameChanged(name: String) {
         updateUiState { it.copy(name = name) }
         setButtonEnabled()

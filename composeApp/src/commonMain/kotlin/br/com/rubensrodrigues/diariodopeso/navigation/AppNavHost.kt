@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.rubensrodrigues.diariodopeso.presentation.journey.signUpData.SignUpDataPage
 import br.com.rubensrodrigues.diariodopeso.presentation.journey.start.StartPage
 
 @Composable
@@ -19,7 +20,7 @@ fun AppNavHost() {
             StartPage(navController)
         }
         composable<Destination.SignUpData> {
-            Text("Top")
+            SignUpDataPage(navController)
         }
         composable<Destination.SignUpPassword> {
 
