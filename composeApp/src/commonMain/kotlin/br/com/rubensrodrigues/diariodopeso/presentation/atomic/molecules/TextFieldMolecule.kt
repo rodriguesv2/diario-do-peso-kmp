@@ -31,6 +31,7 @@ fun TextFieldMolecule(
     label: String,
     modifier: Modifier = Modifier,
     textFieldType: TextFieldType = TextFieldType.GENERIC,
+    errorMessage: String? = null,
 ) {
     var isPasswordVisible by remember { mutableStateOf(false) }
 
@@ -66,8 +67,17 @@ fun TextFieldMolecule(
         },
         colors = TextFieldDefaults.colors(
             focusedContainerColor = Color.Transparent,
-            unfocusedContainerColor = Color.Transparent
-        )
+            unfocusedContainerColor = Color.Transparent,
+            errorContainerColor = Color.Transparent,
+        ),
+        isError = !errorMessage.isNullOrBlank(),
+        supportingText = {
+            errorMessage?.let {
+                Text(
+                    text = it,
+                )
+            }
+        }
     )
 }
 
@@ -105,6 +115,7 @@ private fun Preview() {
                 onValueChange = { value = it },
                 label = "Label",
                 textFieldType = TextFieldType.PASSWORD,
+                errorMessage = "Mensagem de erro",
             )
         }
     }

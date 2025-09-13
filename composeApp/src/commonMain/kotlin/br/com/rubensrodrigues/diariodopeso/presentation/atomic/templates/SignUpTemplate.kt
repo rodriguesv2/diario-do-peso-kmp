@@ -41,6 +41,7 @@ fun SignUpTemplate(
     email: String,
     onEmailChanged: (String) -> Unit,
     onContinueClick: () -> Unit,
+    emailErrorMessage: String?,
 ) {
     Scaffold(
         topBar = {
@@ -74,7 +75,8 @@ fun SignUpTemplate(
                 label = stringResource(Res.string.sign_up_email_field),
                 value = email,
                 onValueChange = onEmailChanged,
-                textFieldType = TextFieldType.EMAIL
+                textFieldType = TextFieldType.EMAIL,
+                errorMessage = emailErrorMessage,
             )
             Expanded()
             ButtonMolecule(
@@ -99,6 +101,7 @@ private fun Preview() {
             onEmailChanged = {},
             onContinueClick = {},
             isButtonEnabled = true,
+            emailErrorMessage = null,
         )
     }
 }

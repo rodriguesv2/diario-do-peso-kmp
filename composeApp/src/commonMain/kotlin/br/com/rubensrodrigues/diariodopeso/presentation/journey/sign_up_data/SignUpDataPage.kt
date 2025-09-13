@@ -39,6 +39,7 @@ fun SignUpDataPage(
         isButtonEnabled = uiState.isButtonEnabled,
         onNameChanged = viewModel::onNameChanged,
         onEmailChanged = viewModel::onEmailChanged,
+        emailErrorMessage = uiState.emailErrorMessage,
         onBackButtonClick = viewModel::onBackButtonClick,
         onContinueClick = viewModel::onContinueClick,
     )

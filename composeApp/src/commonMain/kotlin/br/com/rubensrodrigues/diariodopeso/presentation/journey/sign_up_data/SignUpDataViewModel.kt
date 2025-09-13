@@ -1,8 +1,9 @@
 package br.com.rubensrodrigues.diariodopeso.presentation.journey.sign_up_data
 
 import br.com.rubensrodrigues.diariodopeso.presentation.shared.BaseViewModel
+import br.com.rubensrodrigues.diariodopeso.utils.isEmail
 
-class SignUpDataViewModel : BaseViewModel<SignUpDataState, SignUpDataUiState>(
+class SignUpDataViewModel() : BaseViewModel<SignUpDataState, SignUpDataUiState>(
     SignUpDataUiState()
 ) {
 
@@ -16,12 +17,17 @@ class SignUpDataViewModel : BaseViewModel<SignUpDataState, SignUpDataUiState>(
     }
 
     fun onEmailChanged(email: String) {
-        updateUiState { it.copy(email = email) }
+        updateUiState {
+            it.copy(
+                email = email,
+                emailErrorMessage = if (email.isEmail() || email.isEmpty()) null else "E-mail inválido"
+            )
+        }
         setButtonEnabled()
     }
 
     private fun setButtonEnabled() {
-        val isButtonEnabled = uiState.value.name.isNotEmpty() && uiState.value.email.isNotEmpty()
+        val isButtonEnabled = uiState.value.name.isNotEmpty() && uiState.value.email.isEmail()
         updateUiState { it.copy(isButtonEnabled = isButtonEnabled) }
     }
 

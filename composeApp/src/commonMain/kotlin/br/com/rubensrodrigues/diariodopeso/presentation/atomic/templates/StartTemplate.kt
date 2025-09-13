@@ -91,13 +91,13 @@ fun StartTemplate(
             Text(
                 modifier = Modifier.clickable(onClick = onLoginClick),
                 text = getAlreadyHaveAccountText(),
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
             )
             Margin(20.dp)
             Text(
                 modifier = Modifier.clickable(onClick = onContinueWithoutLoginClick),
                 text = stringResource(Res.string.start_continue_without_login),
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
                 textDecoration = TextDecoration.Underline,
             )
             Margin()

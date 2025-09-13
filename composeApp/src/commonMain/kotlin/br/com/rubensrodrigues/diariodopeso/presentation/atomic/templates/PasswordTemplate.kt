@@ -32,10 +32,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun PasswordTemplate(
-    onBackButtonClick: () -> Unit,
     password: String,
-    onPasswordChanged: (String) -> Unit,
     confirmPassword: String,
+    isButtonEnabled: Boolean,
+    onBackButtonClick: () -> Unit,
+    onPasswordChanged: (String) -> Unit,
     onConfirmPasswordChanged: (String) -> Unit,
     onSignUpClick: () -> Unit,
 ) {
@@ -77,7 +78,8 @@ fun PasswordTemplate(
             ButtonMolecule(
                 modifier = Modifier.fillMaxWidth(),
                 text = stringResource(Res.string.sign_up_finish),
-                onClick = onSignUpClick
+                onClick = onSignUpClick,
+                isEnabled = isButtonEnabled,
             )
         }
     }
@@ -93,7 +95,8 @@ private fun Preview() {
             onPasswordChanged = {},
             confirmPassword = "123456",
             onConfirmPasswordChanged = {},
-            onSignUpClick = {}
+            onSignUpClick = {},
+            isButtonEnabled = true,
         )
     }
 }
