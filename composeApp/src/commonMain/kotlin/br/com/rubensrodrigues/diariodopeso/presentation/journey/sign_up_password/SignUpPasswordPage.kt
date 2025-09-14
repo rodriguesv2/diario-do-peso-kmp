@@ -27,6 +27,8 @@ fun SignUpPasswordPage(
         password = uiState.password,
         confirmPassword = uiState.confirmPassword,
         isButtonEnabled = uiState.isButtonEnabled,
+        passwordErrorMessage = uiState.passwordErrorMessage,
+        confirmPasswordErrorMessage = uiState.confirmPasswordErrorMessage,
         onBackButtonClick = viewModel::onBackButtonClick,
         onPasswordChanged = viewModel::onPasswordChanged,
         onConfirmPasswordChanged = viewModel::onConfirmPasswordChanged,

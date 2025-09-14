@@ -19,12 +19,8 @@ import br.com.rubensrodrigues.diariodopeso.presentation.atomic.organisms.AppBarO
 import br.com.rubensrodrigues.diariodopeso.theme.AppTheme
 import diariodopeso.composeapp.generated.resources.Res
 import diariodopeso.composeapp.generated.resources.sign_up_confirm_password_field
-import diariodopeso.composeapp.generated.resources.sign_up_continue
-import diariodopeso.composeapp.generated.resources.sign_up_email_field
 import diariodopeso.composeapp.generated.resources.sign_up_finish
-import diariodopeso.composeapp.generated.resources.sign_up_name_field
 import diariodopeso.composeapp.generated.resources.sign_up_password_field
-import diariodopeso.composeapp.generated.resources.sign_up_subtitle_data
 import diariodopeso.composeapp.generated.resources.sign_up_subtitle_password
 import diariodopeso.composeapp.generated.resources.sign_up_title
 import org.jetbrains.compose.resources.stringResource
@@ -35,6 +31,8 @@ fun PasswordTemplate(
     password: String,
     confirmPassword: String,
     isButtonEnabled: Boolean,
+    passwordErrorMessage: String? = null,
+    confirmPasswordErrorMessage: String? = null,
     onBackButtonClick: () -> Unit,
     onPasswordChanged: (String) -> Unit,
     onConfirmPasswordChanged: (String) -> Unit,
@@ -65,6 +63,7 @@ fun PasswordTemplate(
                 value = password,
                 onValueChange = onPasswordChanged,
                 textFieldType = TextFieldType.PASSWORD,
+                errorMessage = passwordErrorMessage,
             )
             Margin()
             TextFieldMolecule(
@@ -73,6 +72,7 @@ fun PasswordTemplate(
                 value = confirmPassword,
                 onValueChange = onConfirmPasswordChanged,
                 textFieldType = TextFieldType.PASSWORD,
+                errorMessage = confirmPasswordErrorMessage,
             )
             Expanded()
             ButtonMolecule(

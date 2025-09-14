@@ -4,4 +4,6 @@ data class SignUpPasswordUiState(
     val password: String = "",
     val confirmPassword: String = "",
     val isButtonEnabled: Boolean = false,
+    val passwordErrorMessage: String? = null,
+    val confirmPasswordErrorMessage: String? = null,
 )

@@ -13,28 +13,35 @@ class SignUpPasswordViewModel(
     }
 
     fun onPasswordChanged(value: String) {
-        updateUiState{
+        updateUiState {
             it.copy(password = value)
         }
-        validateButton()
+        validateButtonAndFields()
     }
 
     fun onConfirmPasswordChanged(value: String) {
-        updateUiState{
+        updateUiState {
             it.copy(confirmPassword = value)
         }
-        validateButton()
+        validateButtonAndFields()
     }
 
     fun onSignUpClick() {
 
     }
 
-    private fun validateButton() {
-        val isButtonEnabled = uiState.value.password.length >= PASSWORD_MIN_LENGTH
-                && uiState.value.password == uiState.value.confirmPassword
+    private fun validateButtonAndFields() {
+        val isPasswordValid = uiState.value.password.length >= PASSWORD_MIN_LENGTH
+        val isConfirmPasswordValid = uiState.value.password == uiState.value.confirmPassword
+        val isButtonEnabled = isPasswordValid && isConfirmPasswordValid
 
-        updateUiState { it.copy(isButtonEnabled = isButtonEnabled) }
+        updateUiState {
+            it.copy(
+                isButtonEnabled = isButtonEnabled,
+                passwordErrorMessage = if (isPasswordValid) null else "A senha deve ter no mínimo $PASSWORD_MIN_LENGTH caracteres",
+                confirmPasswordErrorMessage = if (isConfirmPasswordValid) null else "As senhas não coincidem"
+            )
+        }
     }
 }
 
