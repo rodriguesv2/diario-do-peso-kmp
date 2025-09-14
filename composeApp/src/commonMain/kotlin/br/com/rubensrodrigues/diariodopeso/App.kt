@@ -1,6 +1,9 @@
 package br.com.rubensrodrigues.diariodopeso
 
 import androidx.compose.runtime.Composable
+import br.com.rubensrodrigues.diariodopeso.di.firebaseModule
+import br.com.rubensrodrigues.diariodopeso.di.repositoryModule
+import br.com.rubensrodrigues.diariodopeso.di.useCaseModule
 import br.com.rubensrodrigues.diariodopeso.di.viewModelModule
 import br.com.rubensrodrigues.diariodopeso.navigation.AppNavHost
 import br.com.rubensrodrigues.diariodopeso.theme.AppTheme
@@ -11,7 +14,10 @@ fun App() {
     KoinApplication(
         application = {
             modules(
-                viewModelModule
+                viewModelModule,
+                firebaseModule,
+                repositoryModule,
+                useCaseModule,
             )
         }
     ) {

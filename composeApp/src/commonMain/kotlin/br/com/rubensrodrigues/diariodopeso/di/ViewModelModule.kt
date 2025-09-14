@@ -13,8 +13,9 @@ val viewModelModule = module {
 
     viewModel { ( name: String, email: String) ->
         SignUpPasswordViewModel(
-            email = name,
-            name = email
+            email = email,
+            name = name,
+            signUpUseCase = get()
         )
     }
 }

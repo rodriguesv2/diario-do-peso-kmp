@@ -1,10 +1,14 @@
 package br.com.rubensrodrigues.diariodopeso.presentation.journey.sign_up_password
 
+import androidx.lifecycle.viewModelScope
+import br.com.rubensrodrigues.diariodopeso.domain.usecases.SignUpUseCase
 import br.com.rubensrodrigues.diariodopeso.presentation.shared.BaseViewModel
+import kotlinx.coroutines.launch
 
 class SignUpPasswordViewModel(
     private val email: String,
     private val name: String,
+    private val signUpUseCase: SignUpUseCase,
 ) : BaseViewModel<SignUpPasswordState, SignUpPasswordUiState>(
     initialUiState = SignUpPasswordUiState()
 ) {
@@ -27,7 +31,17 @@ class SignUpPasswordViewModel(
     }
 
     fun onSignUpClick() {
-
+        viewModelScope.launch {
+            signUpUseCase(
+                name = name,
+                email = email,
+                password = uiState.value.password,
+            ).onSuccess {
+                //TODO
+            }.onFailure {
+                //TODO
+            }
+        }
     }
 
     private fun validateButtonAndFields() {
