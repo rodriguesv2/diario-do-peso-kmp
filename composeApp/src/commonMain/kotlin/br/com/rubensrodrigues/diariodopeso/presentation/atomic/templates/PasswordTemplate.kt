@@ -31,6 +31,7 @@ fun PasswordTemplate(
     password: String,
     confirmPassword: String,
     isButtonEnabled: Boolean,
+    isLoading: Boolean,
     passwordErrorMessage: String? = null,
     confirmPasswordErrorMessage: String? = null,
     onBackButtonClick: () -> Unit,
@@ -80,6 +81,7 @@ fun PasswordTemplate(
                 text = stringResource(Res.string.sign_up_finish),
                 onClick = onSignUpClick,
                 isEnabled = isButtonEnabled,
+                isLoading = isLoading,
             )
         }
     }
@@ -97,6 +99,7 @@ private fun Preview() {
             onConfirmPasswordChanged = {},
             onSignUpClick = {},
             isButtonEnabled = true,
+            isLoading = false
         )
     }
 }

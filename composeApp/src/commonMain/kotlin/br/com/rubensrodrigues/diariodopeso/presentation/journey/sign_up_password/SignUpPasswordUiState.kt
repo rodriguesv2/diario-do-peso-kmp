@@ -6,4 +6,6 @@ data class SignUpPasswordUiState(
     val isButtonEnabled: Boolean = false,
     val passwordErrorMessage: String? = null,
     val confirmPasswordErrorMessage: String? = null,
+    val shouldShowErrorModal: Boolean = false,
+    val isLoading: Boolean = false,
 )

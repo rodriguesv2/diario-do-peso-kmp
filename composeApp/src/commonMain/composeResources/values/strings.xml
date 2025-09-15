@@ -1,4 +1,8 @@
 <resources>
+    <string name="error_modal_title">Um erro ocorreu!</string>
+    <string name="error_modal_message">Ocorreu um erro inesperado.\nTente novamente mais tarde.</string>
+    <string name="error_modal_button">Ok</string>
+
     <string name="start_google_button">Continuar com Google</string>
     <string name="start_email_button">Continuar com E-mail</string>
     <string name="start_or">ou</string>

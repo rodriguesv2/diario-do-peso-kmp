@@ -32,6 +32,7 @@ class SignUpPasswordViewModel(
 
     fun onSignUpClick() {
         viewModelScope.launch {
+            updateUiState { it.copy(isLoading = true) }
             signUpUseCase(
                 name = name,
                 email = email,
@@ -39,8 +40,10 @@ class SignUpPasswordViewModel(
             ).onSuccess {
                 //TODO
             }.onFailure {
-                //TODO
+                println(it.message)
+                updateUiState { it.copy(shouldShowErrorModal = true) }
             }
+            updateUiState { it.copy(isLoading = false) }
         }
     }
 
@@ -55,6 +58,12 @@ class SignUpPasswordViewModel(
                 passwordErrorMessage = if (isPasswordValid) null else "A senha deve ter no mínimo $PASSWORD_MIN_LENGTH caracteres",
                 confirmPasswordErrorMessage = if (isConfirmPasswordValid) null else "As senhas não coincidem"
             )
+        }
+    }
+
+    fun onDismiss() {
+        updateUiState {
+            it.copy(shouldShowErrorModal = false)
         }
     }
 }
