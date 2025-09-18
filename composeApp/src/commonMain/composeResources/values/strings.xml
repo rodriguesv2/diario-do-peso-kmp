@@ -19,4 +19,9 @@
     <string name="sign_up_confirm_password_field">Confirme a Senha</string>
     <string name="sign_up_continue">Continuar</string>
     <string name="sign_up_finish">Cadastrar</string>
+
+    <string name="setup_title">Configuração</string>
+    <string name="setup_subtitle">Informe a sua altura em centímetros (cm)</string>
+    <string name="setup_height">Altura</string>
+    <string name="setup_confirm">Confirmar</string>
 </resources>

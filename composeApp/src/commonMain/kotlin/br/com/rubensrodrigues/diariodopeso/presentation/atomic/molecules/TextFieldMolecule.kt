@@ -85,6 +85,7 @@ enum class TextFieldType {
     PASSWORD,
     EMAIL,
     NAME,
+    NUMBER,
     GENERIC
 }
 
@@ -94,6 +95,7 @@ private fun getKeyboardType(textFieldType: TextFieldType): KeyboardType {
         TextFieldType.EMAIL -> KeyboardType.Email
         TextFieldType.NAME -> KeyboardType.Text
         TextFieldType.GENERIC -> KeyboardType.Text
+        TextFieldType.NUMBER -> KeyboardType.Number
     }
 }
 
