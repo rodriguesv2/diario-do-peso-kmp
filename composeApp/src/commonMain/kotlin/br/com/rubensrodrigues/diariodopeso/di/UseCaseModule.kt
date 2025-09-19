@@ -1,5 +1,7 @@
 package br.com.rubensrodrigues.diariodopeso.di
 
+import br.com.rubensrodrigues.diariodopeso.domain.usecases.SetHeightUseCase
+import br.com.rubensrodrigues.diariodopeso.domain.usecases.SetHeightUseCaseImpl
 import br.com.rubensrodrigues.diariodopeso.domain.usecases.SignUpUseCase
 import br.com.rubensrodrigues.diariodopeso.domain.usecases.SignUpUseCaseImpl
 import org.koin.core.module.dsl.factoryOf
@@ -8,4 +10,5 @@ import org.koin.dsl.module
 
 val useCaseModule = module {
     factoryOf(::SignUpUseCaseImpl) bind SignUpUseCase::class
+    factoryOf(::SetHeightUseCaseImpl) bind SetHeightUseCase::class
 }

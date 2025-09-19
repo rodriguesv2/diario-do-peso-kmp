@@ -4,6 +4,8 @@ import br.com.rubensrodrigues.diariodopeso.data.remote.repository.AuthRepository
 import br.com.rubensrodrigues.diariodopeso.data.remote.repository.AuthRepositoryImpl
 import br.com.rubensrodrigues.diariodopeso.data.remote.repository.FirestoreRepository
 import br.com.rubensrodrigues.diariodopeso.data.remote.repository.FirestoreRepositoryImpl
+import br.com.rubensrodrigues.diariodopeso.data.remote.repository.SettingsRepository
+import br.com.rubensrodrigues.diariodopeso.data.remote.repository.SettingsRepositoryImpl
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -11,4 +13,5 @@ import org.koin.dsl.module
 val repositoryModule = module {
     singleOf(::AuthRepositoryImpl) bind AuthRepository::class
     singleOf(::FirestoreRepositoryImpl) bind FirestoreRepository::class
+    singleOf(::SettingsRepositoryImpl) bind SettingsRepository::class
 }

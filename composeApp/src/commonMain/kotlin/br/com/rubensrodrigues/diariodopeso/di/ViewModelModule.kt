@@ -1,5 +1,6 @@
 package br.com.rubensrodrigues.diariodopeso.di
 
+import br.com.rubensrodrigues.diariodopeso.presentation.journey.setup.SetupViewModel
 import br.com.rubensrodrigues.diariodopeso.presentation.journey.sign_up_data.SignUpDataViewModel
 import br.com.rubensrodrigues.diariodopeso.presentation.journey.sign_up_password.SignUpPasswordViewModel
 import br.com.rubensrodrigues.diariodopeso.presentation.journey.start.StartViewModel
@@ -18,4 +19,5 @@ val viewModelModule = module {
             signUpUseCase = get()
         )
     }
+    viewModelOf(::SetupViewModel)
 }

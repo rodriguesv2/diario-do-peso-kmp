@@ -41,6 +41,7 @@ fun AppNavHost() {
             )
             SignUpPasswordPage(
                 navController = navController,
+                viewModel = viewModel,
             )
         }
     }
